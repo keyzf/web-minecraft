@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import TWEEN from "@tweenjs/tween.js";
 import swal from "sweetalert";
-import { AssetLoader } from "./AssetLoader.js";
-import { Setup } from "./Setup.js";
+import {AssetLoader} from "./AssetLoader.js";
+import {Setup} from "./Setup.js";
+import {UIController} from "./UI/UIController";
 
 class Game {
     constructor() {
@@ -16,6 +17,7 @@ class Game {
                 normal: 70,
                 sprint: 85,
             };
+            this.uiController = new UIController(this, null);
             this.toxelSize = 27;
             this.dimension = null;
             this.flying = false;
@@ -35,6 +37,7 @@ class Game {
         });
         return;
     }
+
     init() {
         this.socket.on("connect", () => {
             console.log("Connected to server!");

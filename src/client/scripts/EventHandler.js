@@ -69,8 +69,9 @@ class EventHandler {
                 if (z.code === "Slash") {
                     $(".com_i").val("/");
                 }
-                this.setState("chat");
                 z.preventDefault();
+                game.uiController.changeViewState(game.uiController.viewStates.chat);
+
             }
             if (z.code === "Backquote") {
                 z.preventDefault();
@@ -208,10 +209,6 @@ class EventHandler {
         }
     }
     resetState() {
-        $(".chat").removeClass("focus");
-        $(".chat").addClass("blur");
-        $(".com_i").blur();
-        $(".com").hide();
         return $(".inv_window").hide();
     }
     setState(state) {
@@ -232,8 +229,6 @@ class EventHandler {
                 break;
             case "chat":
                 if (this.gameState === "gameLock") {
-                    $(".chat").addClass("focus");
-                    $(".chat").removeClass("blur");
                     $(".gameMenu").hide();
                     this.state("chat");
                     document.exitPointerLock();
