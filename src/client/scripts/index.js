@@ -18,6 +18,7 @@ class Game {
                 sprint: 85,
             };
             this.uiController = new UIController(this, null);
+            this.uiController.changeViewState(this.uiController.viewStates.gameMenu);
             this.toxelSize = 27;
             this.dimension = null;
             this.flying = false;
@@ -35,7 +36,6 @@ class Game {
                 this.init();
             });
         });
-        return;
     }
 
     init() {

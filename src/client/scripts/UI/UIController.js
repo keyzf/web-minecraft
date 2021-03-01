@@ -1,5 +1,7 @@
 import {ChatUI} from "./UIElements/ChatUI";
 import {ChatViewState} from "./ViewStates/Chat";
+import {GameMenuUI} from "./UIElements/GameMenuUI";
+import {GameMenuViewState} from "./ViewStates/GameMenu";
 
 export class UIController {
     constructor(game, inputController) {
@@ -10,10 +12,12 @@ export class UIController {
 
         this.uiElements = {
             chatUI: new ChatUI(),
+            gameMenuUI: new GameMenuUI(),
         };
 
         this.viewStates = {
             chat: new ChatViewState(game, this, inputController),
+            gameMenu: new GameMenuViewState(game, this, inputController),
         };
     }
 
